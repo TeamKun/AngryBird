@@ -26,17 +26,33 @@ public class TeamManager {
     public boolean isExists(Player p){
     return team1_players.contains(p.getUniqueId()) || team2_players.contains(p.getUniqueId()); 
     }
+
+    public boolean isAvailable(int id){
+    return id == 1 || id == 2;
+    }
     
     public void remove(Player p){
     team1_players.remove(p.getUniqueId());
     team2_players.remove(p.getUniqueId());
     }
+
+    public void add(Player p, int id){
+    if(isAvailable(id)){
+        if(getById(id).contain(p.getUniqueId()) return;
+        getById(id).add(p.getUniqueId());
+    }
+    }
     
     public void reset(int id){
-    if(id == 1 || id == 2){
+    if(isAvailable(id)){
     getById(id).clear();
     } else {
     System.out.println("Invalid team id " + id);
+    }
+
+    public void reset(){
+    team1_players.clear();
+    team2_players.clear();
     }
     
     public List<UUID> getById(int id){
