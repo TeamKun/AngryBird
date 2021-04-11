@@ -1,0 +1,7 @@
+name: Angrybird
+version: ${project.version}
+main: net.kunmc.lab.angrybird.Angrybird
+api-version: 1.16
+prefix: AngryBird
+authors: [ Kei ]
+description: Angrybird plugin
