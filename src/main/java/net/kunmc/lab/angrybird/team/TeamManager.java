@@ -27,6 +27,15 @@ public class TeamManager {
         return team1_players.contains(p.getUniqueId()) || team2_players.contains(p.getUniqueId());
     }
 
+    public void setLeader(Player p, int id){
+        if(isAvailable(id)){
+            if(id == 1) team1_leader = p.getUniqueId();
+            if(id == 2) team2_leader = p.getUniqueId();
+        } else {
+            errorId();
+        }
+    }
+
     public boolean isAvailable(int id) {
         return id == 1 || id == 2;
     }
@@ -47,7 +56,7 @@ public class TeamManager {
         if (isAvailable(id)) {
             getById(id).clear();
         } else {
-            System.out.println("Invalid team id " + id);
+            errorId();
         }
     }
 
@@ -60,5 +69,9 @@ public class TeamManager {
         if (id == 1) return team1_players;
         if (id == 2) return team2_players;
         return null;
+    }
+
+    void errorId(){
+        System.out.println("Invalid team id");
     }
 }

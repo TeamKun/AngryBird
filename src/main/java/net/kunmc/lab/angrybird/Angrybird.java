@@ -1,5 +1,6 @@
 package net.kunmc.lab.angrybird;
 
+import net.kunmc.lab.angrybird.listener.ProjectileLaunchEventListener;
 import net.kunmc.lab.angrybird.listener.ToggleSneakEventListener;
 import net.kunmc.lab.angrybird.team.TeamManager;
 import org.bukkit.Bukkit;
@@ -15,6 +16,7 @@ public final class Angrybird extends JavaPlugin {
         // Plugin startup logic
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new ToggleSneakEventListener(this), this);
+        pm.registerEvents(new ProjectileLaunchEventListener(this), this);
         tm = new TeamManager();
     }
 
