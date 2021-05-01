@@ -19,6 +19,13 @@ public class TeamManager {
         team2_players = new ArrayList<>();
     }
 
+    public int playerCount(int id){
+        if(isAvailable(id)){
+            return id == 1 ? team1_players.size() : team2_players.size();
+        }
+        return 0;
+    }
+
     public boolean isLeader(Player p) {
         return p.getUniqueId().equals(team1_leader) || p.getUniqueId().equals(team2_leader);
     }

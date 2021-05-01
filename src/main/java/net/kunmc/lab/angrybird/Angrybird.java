@@ -1,5 +1,6 @@
 package net.kunmc.lab.angrybird;
 
+import net.kunmc.lab.angrybird.cmd.AngryBirdMainCommandExecutor;
 import net.kunmc.lab.angrybird.listener.ProjectileLaunchEventListener;
 import net.kunmc.lab.angrybird.listener.ToggleSneakEventListener;
 import net.kunmc.lab.angrybird.team.TeamManager;
@@ -18,6 +19,7 @@ public final class Angrybird extends JavaPlugin {
         pm.registerEvents(new ToggleSneakEventListener(this), this);
         pm.registerEvents(new ProjectileLaunchEventListener(this), this);
         tm = new TeamManager();
+        getServer().getPluginCommand("ab").setExecutor(new AngryBirdMainCommandExecutor(this));
     }
 
     @Override
